@@ -61,6 +61,17 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap:30px;
   color:black;
+}
+
+.contenido label{
+  margin-top: 20px;
+}
+
+.contenido input{
+  margin: 0px 1em;
+  padding: 1em .5em;
+  border: none;
+  background-color: #180f29;
+  color: aliceblue;
 }
