@@ -1,7 +1,7 @@
 //FUNCION PARA MOSTRAR
-function mostrar(value){
+function Mostrar(value){
     if(value === 1){
-        
+
     }
 
 }
