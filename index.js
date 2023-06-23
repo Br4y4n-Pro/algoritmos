@@ -1,5 +1,15 @@
+//FUNCION PARA MOSTRAR
+function mostrar(value){
+    if(value === 1){
+        
+    }
+
+}
+
+
+
 //Pregunta: Escribe un algoritmo que tome dos números y devuelva su suma.
-    
+
 
 //Pregunta: Escribe un algoritmo que tome un número y devuelva "Es par" si es divisible por 2, y "Es impar" si no lo es.
 

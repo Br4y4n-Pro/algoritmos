@@ -7,18 +7,20 @@
   </head>
   <body>
     <div class="contenedor">
-      <div onclick="algoritmo1()" class="card">
-        <img src="#" alt="Imagen Algoritmo" class="imagen" />
+      <div onclick="Mostrar(1)" class="card">
+        <img src="https://infolibros.org/wp-content/uploads/2021/05/Libros-de-Algoritmo.jpg" alt="Imagen Algoritmo" class="imagen" />
         <h2>Descripcion</h2>
         <p></p>
       </div>
+
       <div class="fondoModal">
         <div class="contenido">
             <label for="num1">Digite el numero</label>
             <input type="number" id="num1" />
             <label for="num2">Digite el numero</label>
             <input type="number" id="num2" />
-            <button class="btn-ejercicio1">SUMAR</button>
+            <button onclick="sumar()" class="btn-ejercicio1">SUMAR</button>
+            <button onclick="cerrar(1)">CLOSE</button>
         </div>
       </div>
     </div>
