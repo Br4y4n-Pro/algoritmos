@@ -213,6 +213,7 @@ input:not(:placeholder-shown) + label{
   }
 
   .acordeon{
+      width:100%;
     height: 0;
   opacity: 0;
   transition: opacity 1s ease;
