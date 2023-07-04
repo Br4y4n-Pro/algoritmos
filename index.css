@@ -17,61 +17,214 @@ body{
 }
 
 .contenedor{
+  width: 100%;
+  max-width: 1024px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap:2em;
 }
 
 .card{
-  width: 300px;
+  width: 90%;
+  max-width: 300px;
   border: 2px solid #131313;
-  border-radius: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  transition: all .5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
+.card:hover{
+  transition: .5s ease;
+  box-shadow: 0px 0px 20px white;
+  transform: scale(1.1);
+
+}
+
+
 .imagen{
   border-radius: 10px;
-  width: 100%;
+  width: 90%;
+  height: 160px;
+  margin: auto;
+  margin-top: 5%;
 }
 
 .card h2{
-  width: 100%;
   text-align: center;
 }
 
 .card p{
-  width: 300px;
+  text-align: justify;
+  margin: 1em;
+  height: 80px;
+  
 }
 
 .fondoModal{
-  display: none;
+
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  background-color: #180f29;
+  transition: all 1s ease;
+  pointer-events: unset;
+  overflow: scroll;
+
+}
+
+.ocultar{
+opacity: 0;
+transition: all 1s ease;
+pointer-events: none;
 }
 
 .contenido{
-  width: 350px;
+  width: 90%;
+  max-width: 350px;
+  height: auto;
   background-color: aliceblue;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color:black;
+  padding: 3em .5em 1em .5em;
+  position: relative;
+  margin: auto auto 1em auto;
 }
 
-.contenido label{
-  margin-top: 20px;
+
+
+.contenido h1{
+  text-align: center;
+  margin-bottom: 1em;
 }
 
-.contenido input{
-  margin: 0px 1em;
-  padding: 1em .5em;
+.grupo{
+  width: 90%;
+  position: relative;
+  margin: .3em 0px;
+  padding: 1em 0px;
+}
+
+
+.grupo input{
+  width: 100%;
+  /*padding: .5em .5em;*/
   border: none;
-  background-color: #180f29;
-  color: aliceblue;
+  border-bottom: 2px solid grey;
+  background-color: transparent;
+  outline: none;
+  font-family: 'Kanit', sans-serif;
+  color:black;
+
+}
+
+/*.grupo input:invalid{
+  background-color: red;
+}
+*/
+
+
+
+
+.grupo label{
+  /*margin-top: 20px;*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(8px);
+  transition: .7s transform;
+  color: grey;
+}
+
+
+input:focus{
+    border-bottom: 2px solid blue;
+    transition: border-bottom .5s ease;
+
+}
+input:focus + label, 
+input:not(:placeholder-shown) + label{
+  transform: translateY(-9px) scale(.8);
+  transition: .7s transform;
+  transform-origin: left top;
+  left: 0;
+  color: black;
+
+}
+
+
+.btn{
+  background-color: #3862f2;
+  padding: .7em 1em;
+  border: none;
+  font-family: 'Kanit', sans-serif;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+
+.w__font{
+  font-weight: 700;
+}
+
+.btn-suma{
+  margin: 2em;
+}
+
+.cerrar{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em;
+  border: none;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  padding: .2em;
+  border-radius:5px;
+}
+
+
+/*ACORDEON ESTILOS DE DESPLIEGUE*/
+.codigo{
+  width: 90%;
+  max-width: 1024px;
+  display: grid;
+  place-items: center;
+  gap: 1em;
+  margin: 1em auto auto;
+  }
+
+  .acordeon{
+    height: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  background-color: transparent;
+ }
+
+  .hola{
+    opacity: 1;
+    height: auto;
+    transition:  opacity .5s ease;
+  }
+
+.extender__abierto{
+  margin: 2em 0px 1em 0px;
 }
