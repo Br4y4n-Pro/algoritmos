@@ -1,3 +1,5 @@
+//============VARIABLES GLOBALES Y REGEX========================
+
 var regex = /^\d+(\.\d+)?$/; //SOLO NUMEROS
 var regexComa = /^[\d]+(?:,[\d]+)*$/; //NUMEROS SEPARADOS POR COMA 
 var regexText = /^[a-zA-Z]+(\s[a-zA-Z]+)*$/ // SOLO TEXTO Y ESPACIOS SIN ESPACIO AL INICIO O FINAL
@@ -5,8 +7,19 @@ let modal1 = document.querySelector('#modalUno')
 let modal2 = document.querySelector('#modalDos')
 let modal3 = document.querySelector('#modalTres')
 let modal4 = document.querySelector('#modalCuatro')
-let acordeon = document.querySelector('.acordeon')
+let modal5 = document.querySelector('#modalCinco')
+// let acordeon = document.querySelector('.acordeon')
 let contenedor = document.querySelector(".contenedor")
+
+
+
+
+//====================================================
+//------------------ABRIR MODALES---------------------
+//====================================================
+
+
+
 
 function Mostrar(value){
 	document.documentElement.style.overflow="hidden"
@@ -22,7 +35,20 @@ function Mostrar(value){
     if (value ===4) {
     	modal4.classList.toggle('ocultar')
     }
+    if (value ===5) {
+    	modal5.classList.toggle('ocultar')
+    }
 }
+
+
+
+
+//===========================================================
+//---------------CERRAR MODAL ABIERTO------------------------
+//===========================================================
+
+
+
 
 function cerrar(value){
 		document.documentElement.style.overflow="unset"
@@ -35,7 +61,11 @@ function cerrar(value){
 		num1.value=""
 		num2.value=""
 		zoneResul.innerHTML=""
-		extender(1)
+		document.querySelector('.btn-extender').innerHTML = "Mostrar Codigo JavaScript";
+
+  // Restablecer la clase y estilos del código
+  	codigo[0].classList.remove('codigo');
+  	codigo[0].classList.add('codigo_oculto');
 
     }
 
@@ -46,6 +76,13 @@ function cerrar(value){
 
 		num1.value=""
 		zoneResul.innerHTML=""
+
+
+		document.querySelector('.btn-extender').innerHTML = "Mostrar Codigo JavaScript";
+
+  // Restablecer la clase y estilos del código
+  	codigo[1].classList.remove('codigo');
+  	codigo[1].classList.add('codigo_oculto');
 	}
 
 	if (value === 3) {
@@ -54,28 +91,141 @@ function cerrar(value){
 		let respuesta = document.querySelector(".resultArreglo");
 		valores.value="";
 		respuesta.innerHTML=""
+
+		document.querySelector('.btn-extender').innerHTML = "Mostrar Codigo JavaScript";
+
+  // Restablecer la clase y estilos del código
+  	codigo[2].classList.remove('codigo');
+  	codigo[2].classList.add('codigo_oculto');
+	}
+
+
+	if (value === 4) {
+		modal4.classList.toggle("ocultar");
+		let textMin = document.querySelector("#textT")
+		let conMayus = document.querySelector(".conMayus")
+		let text ="";
+		textMin.value="";
+		conMayus.innerHTML=""
+
+		document.querySelector('.btn-extender').innerHTML = "Mostrar Codigo JavaScript";
+
+  // Restablecer la clase y estilos del código
+  	codigo[3].classList.remove('codigo');
+  	codigo[3].classList.add('codigo_oculto');
+	}
+
+	if (value === 5) {
+		let string = document.querySelector('#textCont');
+		let respuestaTexto = document.querySelector('.cantidadPalabra')
+		let palabrasA = document.querySelector('.palabras')		
+		string.value='';
+		respuestaTexto.innerHTML = '';
+		palabrasA.innerHTML = '';
+
+		modal5.classList.toggle("ocultar");
+		
+
+		document.querySelector('.btn-extender').innerHTML = "Mostrar Codigo JavaScript";
+
+  // Restablecer la clase y estilos del código
+  	codigo[4].classList.remove('codigo');
+  	codigo[4].classList.add('codigo_oculto');
 	}
 
 
 }
+
+
+
+
+//==========================================================
+//----------------ABRIR Y OCULTAR CODIGO--------------------
+//==========================================================
+
+
+
+
+let codigo = document.querySelectorAll('.codigoSelector');
 
 function extender(valor){
-	let btn = document.querySelector('.extender')
-	let contenido = document.querySelector('.contenido')
-		contenido.classList.toggle('extender__abierto')
-
-	if (acordeon.classList.contains('hola')) {
-		btn.innerHTML="Mostrar Codigo JavaScript"
+let btn = document.querySelectorAll('.btn-extender');
+let fondo = document.querySelectorAll('.fondoModal');
+	
+	if (valor === 1) {
+		if (codigo[0].classList.contains('codigo')) {
+ 	btn[0].innerHTML="Mostrar Codigo JavaScript"
+ 	fondo[0].style.justifyContent = 'center'
 
 	}else{
-		btn.innerHTML ="Ocultar Codigo JavaScript"
-
+	btn[0].innerHTML ="Ocultar Codigo JavaScript"
+	fondo[0].style.justifyContent = 'inherit'
 	}
+		codigo[0].classList.toggle('codigo');
+		codigo[0].classList.toggle('codigo_oculto')
+	};
 
-	if (valor === 1) {
-	acordeon.classList.toggle('hola')
+	if (valor ===2) {
+			if (codigo[1].classList.contains('codigo')) {
+ 	btn[1].innerHTML="Mostrar Codigo JavaScript"
+ 	fondo[1].style.justifyContent = 'center'
+
+	}else{
+	btn[1].innerHTML ="Ocultar Codigo JavaScript"
+	fondo[1].style.justifyContent = 'inherit'
 	}
+		codigo[1].classList.toggle('codigo');
+		codigo[1].classList.toggle('codigo_oculto')
+	};
+
+	if (valor ===3) {
+			if (codigo[2].classList.contains('codigo')) {
+ 	btn[2].innerHTML="Mostrar Codigo JavaScript"
+ 	fondo[2].style.justifyContent = 'center'
+
+	}else{
+	btn[2].innerHTML ="Ocultar Codigo JavaScript"
+	fondo[2].style.justifyContent = 'inherit'
+	}
+		codigo[2].classList.toggle('codigo');
+		codigo[2].classList.toggle('codigo_oculto')
+	};
+
+	if (valor ===4) {
+			if (codigo[3].classList.contains('codigo')) {
+ 	btn[3].innerHTML="Mostrar Codigo JavaScript"
+ 	fondo[3].style.justifyContent = 'center'
+
+	}else{
+	btn[3].innerHTML ="Ocultar Codigo JavaScript"
+	fondo[3].style.justifyContent = 'inherit'
+	}
+		codigo[3].classList.toggle('codigo');
+		codigo[3].classList.toggle('codigo_oculto')
+	};
+
+	if (valor ===5) {
+			if (codigo[4].classList.contains('codigo')) {
+ 	btn[4].innerHTML="Mostrar Codigo JavaScript"
+ 	fondo[4].style.justifyContent = 'center'
+
+	}else{
+	btn[4].innerHTML ="Ocultar Codigo JavaScript"
+	fondo[4].style.justifyContent = 'inherit'
+	}
+		codigo[4].classList.toggle('codigo');
+		codigo[4].classList.toggle('codigo_oculto')
+	};
+
+
 }
+
+
+
+
+// ==============================================================
+// ----------------ALGORITMOS A SOLUCIONAR-----------------------
+// ==============================================================
 
 
 
@@ -98,87 +248,97 @@ function sumar(){
 	}else{
 		alert("Digite numeros no se permite ningun tipo de caracter diferente")
 	}
-}
-//Pregunta: Escribe un algoritmo que tome un número y devuelva "Es par" si es divisible por 2, y 
-//"Es impar" si no lo es.
-	function parce(){
+}; //1
+
+//Pregunta: Escribe un algoritmo que tome un número y devuelva "Es par" si es divisible por 2, y "Es impar" si no lo es.
+function parce(){
+	//Se accede al input y a el lugar de la respuesta
 		let num1 = document.querySelector("#numero");
 		let zoneResul = document.querySelector('.result')
+	//Se convierte el valor a un entero
 		num1 = parseInt(num1.value);
-
+		//Se verifica con este regex que lo introducido sea un numero
 		if (regex.test(num1)) {
-		if ((num1 % 2) === 0) {
-			zoneResul.innerHTML = "es par"
-		}else{
-			zoneResul.innerHTML = "es impar"
+			//Se verifica que sea par observando si el modulo da 0
+			if ((num1 % 2) === 0) {
+				zoneResul.innerHTML = "es par"
+				}else{
+				zoneResul.innerHTML = "es impar"
+				}
+			}else{
+				alert("Digite un numero no se permite caracteres")
 			}
-		}else{
-			alert("Digite un numero no se permite caracteres")
-		}
-	}
-//Pregunta: Escribe un algoritmo que tome un arreglo de números y devuelva el número más grande.
+};	//2
 
+//Pregunta: Escribe un algoritmo que tome un arreglo de números y devuelva el número más grande.
 function arreglo(){
+	//Se accede al elemento del input y donde se guardara la respuesta
 	let valores = document.querySelector("#text").value;
 	let respuesta = document.querySelector(".resultArreglo");
+	//se hace un arreglo con lo digitado este se separa por una coma
+	// AUN NO SE VALIDA QUE LOS DATOS DIGITADOS SEAN CORRECTOS
 	let arreglo = valores.split(",")
+	// se crea una variable con el valor 0
 	let mayor = 0;
-	let error = false;
-	console.log(arreglo)
+	//se verifica que cumpla con la separacion de comas y que sean numeros
 	if (regexComa.test(valores)) {
-			arreglo.forEach((numero) => {
+			arreglo.forEach(numero => {
 				numero = parseInt(numero)
-				if (isNaN(numero)) {
-				error = true;
-				return
-				}else{
-				if (numero > mayor) {
-				mayor = numero
-					}
-				}		
-			});
+				//se usa expresión ternaria
+				mayor = (numero > mayor) ? numero : mayor;
 
-		if (error) {
-		alert('Digite la lista segùn los parametros num separado por ,')
-			respuesta.innerHTML="Corrige el error"			
-	}else{
-		respuesta.innerHTML=mayor;
-	}
-	
+				});
+	//despues de hacer la operacion se queda guardado el numero mayor en la variable mayor
+	//se hace un innerHTML con el numero
+	  respuesta.innerHTML=mayor;
+
   }else{
-  	alert("Que haces? Hazlo bien en la descripcion te dice que hacer")
+  	//muestre mensaje de error sino cumple con los parametros
+  	alert("Error al crear la lista por favor son numeros enteros y separados por coma")
+  		respuesta.innerHTML="Corrige el error"			
+
   }
-};
+}; //3
 
 // Pregunta: Escribe un algoritmo que tome un string y devuelva la misma cadena pero con todas las letras en mayúsculas.
 function mayus(){
-	var textMin = document.querySelector("#textT")
+	//Se accede a los elementos 
+	let textMin = document.querySelector("#textT")
 	let conMayus = document.querySelector(".conMayus")
-	let text = textMin.value.toUpperCase().toString();
-	console.log(text)
-
+	// se trae el texto del input se convierte a mayuscula y se elimina los espacios al inicio
+	//y final de la cadena
+	// esto se hace por que en el regex no permite espacios al inicio o final de la cadena
+	let text = textMin.value.toUpperCase().trim();
+	// se valida el text si pasa se muestra si no manda mensaje de correcion y se coloca tambien en el inner 
 	if (regexText.test(text)) {
 	conMayus.innerHTML = text;
 	}else{
 		conMayus.innerHTML = 'Corregir'
-		alert('Solo se permite texto,elimina cualquier espacio, numero o puntuaciones de la cadena  o verifica que no haya espacios al inicio o final de la cadena')
+		alert('Solo se permite texto,elimina cualquier espacio, numero o puntuaciones de la cadena')
 	}
+}; //4
 
-}
+// Pregunta: Escribe un algoritmo que tome un arreglo de strings y 
+//devuelva la cantidad de elementos que tienen una longitud mayor a 5.
+function largoString () {
+	let string = document.querySelector('#textCont').value;
+	let respuestaTexto = document.querySelector('.cantidadPalabra')
+	let palabrasA = document.querySelector('.palabras')
+	let cortados = string.split(" ")
+	let words = cortados.filter((texto) => {
+			return texto.length >= 5
+		});
 
-// Pregunta: Escribe un algoritmo que tome un arreglo de strings y devuelva la cantidad de elementos que tienen una longitud mayor a 5.
+	let wordsRealize = words.map(palabra => `<li>${palabra}</li>`).join('');
+	
+	respuestaTexto.innerHTML = words.length;
+	palabrasA.innerHTML = wordsRealize;
+
+	}; //5
 
 // Pregunta: Escribe un algoritmo que tome un número y devuelva la secuencia de Fibonacci hasta ese número.
 
 // Pregunta: Escribe un algoritmo que tome un arreglo de números y devuelva un nuevo arreglo con los elementos ordenados de menor a mayor.
-
-// Pregunta: Escribe un algoritmo que tome un número y devuelva true si es un número primo, y false si no lo es.
-
-// Pregunta: Escribe un algoritmo que tome una cadena de palabras separadas por espacios y devuelva la cadena con las palabras en orden inverso.
-
-// Pregunta: Escribe un algoritmo que tome un número y devuelva la suma de todos los números naturales hasta ese número.
-
-// Recuerda que estos son solo ejemplos de preguntas de ejercicios de algoritmos en JavaScript. Puedes intentar resolverlos por tu cuenta y luego buscar las soluciones o pedirlas si necesitas ayuda. ¡Buena suerte en tu práctica!
 
 // Pregunta: Escribe un algoritmo que tome un número y devuelva true si es un número primo, y false si no lo es.
 
