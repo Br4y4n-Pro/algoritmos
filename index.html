@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css">
+    <<link rel="icon" href="./Img/icono.png">
      <link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism.css" rel="stylesheet" />
-    <title>ALGORITMOS PRACTICA CON JS</title>
+    <title>Algoritmos Con JS  😊</title>
   </head>
   <body>
     <div class="contenedor">
@@ -13,19 +14,19 @@
       <div onclick="Mostrar(1)" class="card">
           <img class="imagen" src="https://infolibros.org/wp-content/uploads/2021/05/Libros-de-Algoritmo.jpg" alt="Imagen Algoritmo" />
           <h2>Descripción</h2>
-          <p>Se sumara dos numeros que se digitaran en un input y este dara el valor</p>
+          <p>Se sumara dos numeros que se digitaran en un input y este dara el valor.</p>
       </div>
 <!--DESCRIPCION  MODAL 2 -->
       <div onclick="Mostrar(2)" class="card">
           <img class="imagen" src="https://luiselectronic.com/wp-content/uploads/2023/02/Lenguaje-C-C-Python.005.webp" alt="Imagen Algoritmo" />
           <h2>Descripción</h2>
-          <p>Se determinara si un numero es par o impar</p>
+          <p>Se determinara si un numero es par o impar.</p>
       </div>
 <!--DESCRIPCION MODAL 3 -->
       <div onclick="Mostrar(3)" class="card">
           <img class="imagen" src="https://w0.peakpx.com/wallpaper/1009/119/HD-wallpaper-happiness-text-code-programing-black-technology.jpg" alt="Imagen Algoritmo" />
           <h2>Descripción</h2>
-        <p>Mostrara el numero entero mayor de una lista de numeros esta debera ser separadas por una coma</p>
+        <p>Mostrara el numero entero mayor de una lista de numeros esta debera ser separadas por una coma.</p>
       </div>
 <!--DESCRIPCION MODAL 4 -->
     <div onclick="Mostrar(4)" class="card">
@@ -34,12 +35,28 @@
         <p>Escribe un texto y devuelva el mismo texto pero con todas las letras en mayúsculas.</p>
     </div>
 
+    <!--DESCRIPCION MODAL 5 -->
+    <div onclick="Mostrar(5)" class="card">
+        <img class="imagen" src="https://c4.wallpaperflare.com/wallpaper/527/102/511/programming-code-php-wallpaper-preview.jpg" alt="Imagen Algoritmo" />
+        <h2>Descripción</h2>
+        <p>Escribe un texto y este te dira cuantas palabras tiene una longitud mayor a 5, se permite cualquier caracter o numero.</p>
+    </div>
+
+
 
 
     </div>
 
+
+
+
 <!-- SECCION DE MODALES -->
 
+
+
+
+
+    <!-- modal uno -->
 <div id="modalUno" class="fondoModal ocultar">
         <div class="contenido">
           <h1>SUMAR NUMEROS</h1>
@@ -57,9 +74,9 @@
             <button onclick="sumar()" class="btn btn-suma">SUMAR</button>
             <button class="cerrar" onclick="cerrar(1)">CLOSE</button>
         </div>
-       <button class="extender btn" onclick="extender(1)">Mostrar Codigo Javascript</button>
+       <button class="btn-extender btn" onclick="extender(1)">Mostrar Codigo Javascript</button>
 
-      <div class="codigo">
+      <div class="codigo_oculto codigoSelector">
         <pre class="acordeon">
             <code class="language-javascript">
   function sumar(){
@@ -90,6 +107,10 @@
       </div>
 </div>
 
+
+<!-- modal dos -->
+
+
       <div id="modalDos" class="fondoModal ocultar">
         <div class="contenido">
           <h1>NUMEROS PARES O IMPARES</h1>
@@ -102,7 +123,36 @@
             <button onclick="parce()" class="btn btn-suma">CALCULAR</button>
             <button class="cerrar" onclick="cerrar(2)">CLOSE</button>
         </div>
+        <button class="btn-extender btn" onclick="extender(2)">Mostrar Codigo Javascript</button>
+
+      <div class="codigo_oculto codigoSelector">
+        <pre class="acordeon">
+            <code class="language-javascript">
+function parce(){
+  //Se accede al input y a el lugar de la respuesta
+    let num1 = document.querySelector("#numero");
+    let zoneResul = document.querySelector('.result')
+  //Se convierte el valor a un entero
+    num1 = parseInt(num1.value);
+    //Se verifica con este regex que lo introducido sea un numero
+    if (regex.test(num1)) {
+      //Se verifica que sea par observando si el modulo da 0
+      if ((num1 % 2) === 0) {
+        zoneResul.innerHTML = "es par"
+        }else{
+        zoneResul.innerHTML = "es impar"
+        }
+      }else{
+        alert("Digite un numero no se permite caracteres")
+      }
+};
+            </code>
+        </pre>
       </div>
+
+      </div>
+
+      <!-- modal tres -->
 
 
 <div id="modalTres" class="fondoModal ocultar">
@@ -117,21 +167,128 @@
             <button onclick="arreglo()" class="btn btn-suma">CALCULAR</button>
             <button class="cerrar" onclick="cerrar(3)">CLOSE</button>
         </div>
+        <button class="btn-extender btn" onclick="extender(3)">Mostrar Codigo Javascript</button>
+
+      <div class="codigo_oculto codigoSelector">
+        <pre class="acordeon">
+            <code class="language-javascript">
+function arreglo(){
+  //Se accede al elemento del input y donde se guardara la respuesta
+  let valores = document.querySelector("#text").value;
+  let respuesta = document.querySelector(".resultArreglo");
+  //se hace un arreglo con lo digitado este se separa por una coma
+  // AUN NO SE VALIDA QUE LOS DATOS DIGITADOS SEAN CORRECTOS
+  let arreglo = valores.split(",")
+  // se crea una variable con el valor 0
+  let mayor = 0;
+
+  //se verifica que cumpla con la separacion de comas y que sean numeros
+  //var regexComa = /^[\d]+(?:,[\d]+)*$/; NUMEROS SEPARADOS POR COMA 
+  if (regexComa.test(valores)) {
+      arreglo.forEach(numero => {
+        numero = parseInt(numero)
+        //se usa expresión ternaria
+        mayor = (numero > mayor) ? numero : mayor;
+
+        });
+  //despues de hacer la operacion se queda guardado el numero mayor en la variable mayor
+  //se hace un innerHTML con el numero
+    respuesta.innerHTML=mayor;
+
+  }else{
+    //muestre mensaje de error sino cumple con los parametros
+    alert("Error al crear la lista por favor son numeros enteros y separados por coma")
+      respuesta.innerHTML="Corrige el error"      
+
+  }
+};
+            </code>
+        </pre>
       </div>
+
+      </div>
+
+
+      <!-- modal cuatro -->
+
+
 
 <div id="modalCuatro" class="fondoModal ocultar">
         <div class="contenido">
           <h1>HAZ TU TEXTO MAYUSCULA</h1>
           
           <div class="grupo">
-            <input type="textT" id="textT" placeholder=" " />
+            <input type="text" id="textT" placeholder=" " />
             <label for="textT">Escribe un texto</label>
           </div>
             <p><span class="conMayus w__font"></span></p>
-            <button onclick="mayus()" class="btn btn-suma">REALIZAR</button>
+            <button onclick="mayus()" class="btn btn-suma">Realizar</button>
             <button class="cerrar" onclick="cerrar(4)">CLOSE</button>
         </div>
+
+         <button class="btn-extender btn" onclick="extender(4)">Mostrar Codigo Javascript</button>
+
+      <div class="codigo_oculto codigoSelector">
+        <pre class="acordeon">
+            <code class="language-javascript">
+function mayus(){
+  //Se accede a los elementos 
+  let textMin = document.querySelector("#textT")
+  let conMayus = document.querySelector(".conMayus")
+  // se trae el texto del input se convierte a mayuscula y se elimina los espacios al inicio
+  //y final de la cadena
+  // esto se hace por que en el regex no permite espacios al inicio o final de la cadena
+  let text = textMin.value.toUpperCase().trim();
+  // se valida el text si pasa se muestra si no manda mensaje de correcion y se coloca tambien en el inner 
+  if (regexText.test(text)) {
+  conMayus.innerHTML = text;
+  }else{
+    conMayus.innerHTML = 'Corregir'
+    alert('Solo se permite texto,elimina cualquier espacio, numero o puntuaciones de la cadena')
+  }
+};
+            </code>
+        </pre>
       </div>
+      </div>
+
+
+
+<div id="modalCinco" class="fondoModal ocultar">
+        <div class="contenido">
+          <h1>HAZ TU TEXTO MAYUSCULA</h1>
+          
+          <div class="grupo">
+            <input type="text" id="textCont" placeholder=" " />
+            <label for="textCont">Escribe un texto </label>
+          </div>
+            <p class="parrafo">La(s) palabra(s) con una longitud mayor a 5 son: <span class="cantidadPalabra w__font"></span> y son <span class="palabras"></span></p>
+            
+            <button onclick="largoString()" class="btn btn-suma">Realizar</button>
+            <button class="cerrar" onclick="cerrar(5)">CLOSE</button>
+        </div>
+
+         <button class="btn-extender btn" onclick="extender(5)">Mostrar Codigo Javascript</button>
+
+      <div class="codigo_oculto codigoSelector">
+        <pre class="acordeon">
+            <code class="language-javascript">
+function largoString () {
+  let string = document.querySelector('#textCont').value;
+  let respuestaTexto = document.querySelector('.cantidadPalabra')
+  let cantidad = 0;
+  let cortados = string.split(" ")
+
+  let contador = cortados.filter(texto => texto.length >= 5 ? cantidad++ :cantidad===cantidad);
+  
+  respuestaTexto.innerHTML = cantidad;
+
+  }; 
+            </code>
+        </pre>
+      </div>
+      </div>
+
     <script src="index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.js">
       Prism.highlightAll();
