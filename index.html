@@ -274,16 +274,20 @@ function mayus(){
         <pre class="acordeon">
             <code class="language-javascript">
 function largoString () {
-  let string = document.querySelector('#textCont').value;
-  let respuestaTexto = document.querySelector('.cantidadPalabra')
-  let cantidad = 0;
-  let cortados = string.split(" ")
+	let string = document.querySelector('#textCont').value;
+	let respuestaTexto = document.querySelector('.cantidadPalabra')
+	let palabrasA = document.querySelector('.palabras')
+	let cortados = string.split(" ")
+	let words = cortados.filter((texto) => {
+			return texto.length >= 5
+		});
 
-  let contador = cortados.filter(texto => texto.length >= 5 ? cantidad++ :cantidad===cantidad);
-  
-  respuestaTexto.innerHTML = cantidad;
+	let wordsRealize = words.map(palabra => `<li>${palabra}</li>`).join('');
+	
+	respuestaTexto.innerHTML = words.length;
+	palabrasA.innerHTML = wordsRealize;
 
-  }; 
+	};
             </code>
         </pre>
       </div>
